@@ -1,0 +1,9 @@
+.wrapper {
+    height: 2000px;
+    margin-left: 16rem;
+    transition: margin-left ease-in-out .3s;
+}
+
+.wrapper.sidebar-close {
+    margin-left: 0;
+}
