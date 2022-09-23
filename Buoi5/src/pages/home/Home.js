@@ -1,21 +1,14 @@
-import { useState } from "react";
-import Sidebar from "../../components/sidebar/Sidebar";
-import Wrapper from "../../components/wrapper/Wrapper";
+import PrManageState from "../../sharedata/PrManageState"
+import DemoClassComponent from "../../_sharecomponents/DemoClassComponent"
 
 const Home = (props) => {
-    const [sidebarIsOpen, setSidebarIsOpen] = useState(true);
-    const _toggleSidebar = () => {
-        setSidebarIsOpen(!sidebarIsOpen);
-    }
     return (
         <div className="home">
-            <Sidebar sidebarIsOpen={sidebarIsOpen}/>
-            <Wrapper 
-                toggleSidebar={_toggleSidebar}
-                sidebarIsOpen={sidebarIsOpen}
-            />
+            <h1>Share data between child components</h1>
+            {/* <DemoClassComponent /> */}
+            <PrManageState />
         </div>
     )
 }
 
-export default Home;
+export default Home
