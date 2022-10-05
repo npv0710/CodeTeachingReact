@@ -1,0 +1,8 @@
+.header {
+    height: 7.2rem;
+    border: 1px solid lightgray;
+    position: sticky;
+    top: 0;
+    background-color: #ffffff;
+    z-index: 99;
+}
