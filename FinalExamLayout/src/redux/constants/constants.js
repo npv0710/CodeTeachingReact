@@ -1,0 +1,8 @@
+const TOGGLE_SIDEBAR = 'TOGGLE_SIDEBAR'
+
+const GET_USER_INFO = 'GET_USER_INFO'
+
+export {
+    TOGGLE_SIDEBAR,
+    GET_USER_INFO
+}
