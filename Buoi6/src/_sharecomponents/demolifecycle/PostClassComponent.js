@@ -14,19 +14,19 @@ class PostClassComponet extends Component {
         console.log('Component did mount')
     }
 
-    componentWillUpdate(newProps){//Set new state here after received new props
-        console.log('Component will update...');
-        console.log('new props will receive: ');
-        console.log(newProps);
-    }
+    // componentWillUpdate(newProps){//Set new state here after received new props
+    //     console.log('Component will update...');
+    //     console.log('new props will receive: ');
+    //     console.log(newProps);
+    // }
 
-    componentDidUpdate(prevProps) {
-        console.log('Component did updated');
-        console.log('Previous props: ');
-        console.log(prevProps);
-        if (prevProps.postId !== this.props.postId)
-            this.getPost(this.props.postId);
-    }
+    // componentDidUpdate(prevProps) {
+    //     console.log('Component did updated');
+    //     console.log('Previous props: ');
+    //     console.log(prevProps);
+    //     if (prevProps.postId !== this.props.postId)
+    //         this.getPost(this.props.postId);
+    // }
 
     getPost = async(id) => {
         try {

@@ -1,5 +1,6 @@
 import './Header.css';
 import { FiMenu } from 'react-icons/fi';
+import MessageContext from '../../context/MessageContext';
 
 const Header = (props) => {
 
@@ -16,7 +17,12 @@ const Header = (props) => {
             <FiMenu 
                 style={{cursor: 'pointer', marginLeft: '1.5rem'}} size={20}
                 onClick={handleClickMenuIcon}
-            />  
+            />
+            <MessageContext.Consumer>
+                {
+                    message => <h1>{message}</h1>
+                }
+            </MessageContext.Consumer>
         </div>
     )
 }

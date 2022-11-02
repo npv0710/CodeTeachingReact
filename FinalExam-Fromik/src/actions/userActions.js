@@ -183,41 +183,38 @@ const signin = (username, password) => async(dispath) => {
     dispath({
         type: constants.SIGNIN_REQUEST
     })
+   
+    try {
+        const response = await axios.post('/api/auth/signin', {
+            username: username,
+            password: password
+        })
 
-    const res = await userAPIs.signin(username, password);
+        console.log('response action signin: ')
+        console.log(response)
 
-    console.log(res);
-    // try {
-    //     const response = await axios.post('/api/auth/signin', {
-    //         username: username,
-    //         password: password
-    //     })
+        //Save localStorage
+        localStorage.setItem('token', response.data.token)
+        localStorage.setItem('username', response.data.username)
+        localStorage.setItem('role', response.data.role)
 
-    //     console.log('response action signin: ')
-    //     console.log(response)
+        dispath({
+            type: constants.SIGNIN_SUCCESS,
+            payload: response.data
+        })
 
-    //     //Save localStorage
-    //     localStorage.setItem('token', response.data.token)
-    //     localStorage.setItem('username', response.data.username)
-    //     localStorage.setItem('role', response.data.role)
+        window.location.replace('/')
 
-    //     dispath({
-    //         type: constants.SIGNIN_SUCCESS,
-    //         payload: response.data
-    //     })
-
-    //     window.location.replace('/')
-
-    // }catch (error) {
-    //     console.log(error);
-    //     dispath({
-    //         type: constants.SIGNIN_FAIL,
-    //         payload: {
-    //             statusCode: error.response.status,
-    //             message: error.response.data
-    //         }
-    //     })
-    // }
+    }catch (error) {
+        console.log(error);
+        dispath({
+            type: constants.SIGNIN_FAIL,
+            payload: {
+                statusCode: error.response.status,
+                message: error.response.data
+            }
+        })
+    }
 }
 
 const getListGroups = (groupFilterForm) => async(dispath) => {

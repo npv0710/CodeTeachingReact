@@ -9,6 +9,7 @@ import styled from "styled-components";
 
 import OnMouseHover from '../../renderprops/OnMouseHover';
 import Counter from "../../renderprops/Counter";
+import WithColor from "../../HOC/WithColor";
 
 
 const Logo = (props) => {
@@ -16,6 +17,28 @@ const Logo = (props) => {
         <img src="logo192.png" style={{position: 'absolute', left: props.mouse.x, top: props.mouse.y}}/>
     )
 }
+
+const Title = (props) => {
+    return (
+        <div>
+            <h1>Random Color</h1>
+            <h2>{props.subTitle}</h2>
+            <h3>{props.number}</h3>
+        </div>
+    )
+}
+
+const Article = (props) => {
+    return (
+        <div>
+            <h1>Article</h1>
+            <h2>{props.articleTitle}</h2>
+        </div>
+    )
+}
+
+const TitleWithRandomColor = WithColor(Title);
+const ArticleWithRandomColor = WithColor(Article);
 
 const Main = (props) => {
     return (
@@ -32,7 +55,10 @@ const Main = (props) => {
                 <Route path="/user-info" component={UserInfo}/>
                 <Route path="/list-groups" component={ListGroups}/>
             </Switch>
-
+            {/* HOC */}
+            <TitleWithRandomColor subTitle="123abc"/>
+            <ArticleWithRandomColor />
+            
             <h1>Render props:</h1>
             {/* <OnMouseHover 
                 render={({x, y}) => {

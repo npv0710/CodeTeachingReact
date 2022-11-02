@@ -98,7 +98,7 @@ class DemoLifeCycle extends Component {
             <div className="demo-lifecycle">
                 <h1> Demo life cycle component</h1>
                 <h3>Message form parent: {this.state.message.toUpperCase()}</h3>
-                <Clock titleColor={this.state.titleColor}/>
+                {/* <Clock titleColor={this.state.titleColor}/> */}
                 {/*
                 {this.state.flagShowClock && <ClockHooksLifeCycle titleColor={this.state.titleColor}/>}
                 <button onClick={this.shutdownClock}>Shutdown Clock</button>*/}
