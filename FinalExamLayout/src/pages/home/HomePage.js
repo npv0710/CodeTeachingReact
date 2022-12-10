@@ -19,15 +19,15 @@ const SettingsWithLoading = WithLoading(Settings)
 
 
 const HomePage = (props) => {
-    //const [sideBarIsOpen, setSidebarIsOpen] = useState(true)
-    const handleClickMenuIcon = (sidebarIsOpen) => {
-        //setSidebarIsOpen(sidebarIsOpen)
+    const [sidebarIsOpen, setSidebarIsOpen] = useState(true)
+    const handleClickMenuIcon = () => {
+        setSidebarIsOpen(!sidebarIsOpen)
     }
 
     return(
         <div className='home-container'>
-            <Sidebar />
-            <div className={props.sidebarIsOpen ? 'home-main' : 'home-main sidebar-close'}>
+            <Sidebar sidebarIsOpen={sidebarIsOpen}/>
+            <div className={sidebarIsOpen ? 'home-main' : 'home-main sidebar-close'}>
                 <Header clickMenuIcon={handleClickMenuIcon}/>
                 <div className='main-content'>
                     {/* react router ver 5 */}
@@ -45,11 +45,4 @@ const HomePage = (props) => {
     )
 }
 
-
-const mapStateToProps = (state) => {
-    return {
-        sidebarIsOpen: state.view.sidebarIsOpen
-    }
-}
-
-export default connect(mapStateToProps, null)(HomePage);
+export default HomePage;

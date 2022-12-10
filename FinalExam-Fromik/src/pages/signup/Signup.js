@@ -18,6 +18,8 @@ import { connect } from 'react-redux';
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
+import { REGEX_PASSWORD } from "../../utils/patterns";
+
 const SingupContainer = styled.div `
     max-width: 400px;
     margin: auto;
@@ -125,17 +127,20 @@ const Signup = (props) => {
                 .max(15, "Maximum 15 characters")
                 .required("Required!"),
             email: Yup.string()
-              .email("Invalid email format")
-              .required("Required!"),
+                .email("Invalid email format")
+                .required("Required!"),
+
+            // password: Yup.string()
+            //     .min(6, "Minimum 6 characters")
+            //     .required("Required!"),
+
             password: Yup.string()
-              .min(6, "Minimum 6 characters")
-              .required("Required!"),
+                .required("Please enter your password!")
+                .matches(REGEX_PASSWORD, 'Password: Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and One Special Case Character'),
+
             role: Yup.string()
                 .oneOf(['ADMIN', 'MANAGER', 'EMPLOYEE'])
                 .required()
-            // confirm_password: Yup.string()
-            //   .oneOf([Yup.ref("password")], "Password's not match")
-            //   .required("Required!")
         }),
         onSubmit: values => {
             props.signup(values);
@@ -238,7 +243,8 @@ const Signup = (props) => {
                 <FormGroup>
                     <CustomInput
                         label='Password *'
-                        type='password'
+                        //type='password'
+                        type='text'
                         name='password'
                         // value=''
                         // onChangeInput={_onChangeInput}
@@ -290,7 +296,6 @@ const Signup = (props) => {
 }
 
 //export default Signup
-
 
 const mapStateToProps = (state) => {
     return {

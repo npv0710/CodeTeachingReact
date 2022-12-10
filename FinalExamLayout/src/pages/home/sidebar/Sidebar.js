@@ -41,10 +41,5 @@ const Sidebar = (props)=> {
     )
 }
 
-const mapStateToProps = (state) => {
-    return {
-        sidebarIsOpen: state.view.sidebarIsOpen
-    }
-}
 
-export default connect(mapStateToProps, null)(Sidebar);
+export default Sidebar;

@@ -53,8 +53,8 @@ function App() {
                 
                 {/* react router ver 6 */}
                 <Routes>
-                    <Route path="/sign-in" element={<SigninWithLoading />}/>
-                    <Route path="/sign-up" element={<SignupWithLoading />} />
+                    <Route path="/signin" element={<SigninWithLoading />}/>
+                    <Route path="/signup" element={<SignupWithLoading />} />
                     <Route path="/forgot-password" element={<ForgotPassword />} />
                     <Route path="/" element={<Navigate to="/sign-in"/>} />
                 </Routes>
@@ -75,8 +75,8 @@ function App() {
 
         /* react router ver 6 */
         <Routes>
-            <Route path="/sign-in" element={ <SigninWithLoading /> }/>
-            <Route path="/sign-up" element={ <SignupWithLoading /> } />
+            <Route path="/signin" element={ <SigninWithLoading /> }/>
+            <Route path="/signup" element={ <SignupWithLoading /> } />
             <Route path="/forgot-password" element={ <ForgotPassword /> } />
 
             <Route path="/" element={ <HomePage /> }>

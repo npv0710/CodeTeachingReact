@@ -16,7 +16,7 @@ export const menuLinks = [
     },
     {
         text: 'Settings',
-        link: '/Settings',
+        link: '/settings',
         icon: 'fa-solid fa-gear'
     },
 ]

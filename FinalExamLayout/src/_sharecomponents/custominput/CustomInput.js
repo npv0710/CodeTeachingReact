@@ -10,22 +10,17 @@ function CustomInput(props) {
     const [allowed, setAllowed] = useState(false)
 
     const _onChange = (e) => {
-        // console.log(e.target)
-        // console.log(e.target.value)
-        
-        setValue(e.target.value)
+        setValue(e.target.value);
 
-        props.onChangeInput(e)
+        props.onChangeInput(e);
     }
 
     const _onFocus = (e) => {
-        setInputFocus(true)
+        setInputFocus(true);
     }
 
     const _onBlur = (e) => {
-        // console.log('onblur: ')
-        // console.log(e)
-        setInputFocus(false)
+        setInputFocus(false);
 
         if (value != null && value !== '') {
             setAllowed(true)
@@ -33,19 +28,12 @@ function CustomInput(props) {
     }
 
     useEffect(() => {
-        setAllowed(true)
-        setInputFocus(false)
-    },)
+        setValue(props.value);
 
-    useEffect(() => {
-        setValue(props.value)
-
-        if (props.value != null && props.value !== '') {
-            setAllowed(true)
-            setInputFocus(false)
-        }else {
-            setAllowed(false)
-        }
+        if (props.value) {
+            setAllowed(true);
+            setInputFocus(false);
+        }else setAllowed(false);
         
     }, [props.value])
 

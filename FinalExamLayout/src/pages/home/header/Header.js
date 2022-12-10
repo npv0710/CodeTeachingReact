@@ -13,8 +13,8 @@ import viewActions from '../../../redux/actions/viewActions';
 
 const Header = (props) => {
     const [sideIsOpen, setSidebarIsOpen] = useState(false)
-    const clickMenuIcon = () => {
-        props.toggleSidebar();
+    const _clickMenuIcon = () => {
+        props.clickMenuIcon();
     }
 
     const [dropdownIsOpen, setDropdownIsOpen] = useState(false)
@@ -30,7 +30,7 @@ const Header = (props) => {
         <div className='header'>
             <div className='row-1'>
                 <div className='nav-left'>
-                    <MdMenu className='menu-icon' onClick={clickMenuIcon} />
+                    <MdMenu className='menu-icon' onClick={_clickMenuIcon} />
                     <Link to="/">Dashboard</Link>
                     <Link to="/user-info">User Info</Link>
                     <Link to="/list-groups">List Group</Link>
@@ -52,12 +52,4 @@ const Header = (props) => {
     )
 }
 
-const mapDispatchToProps = (dispatch, props) => {
-    return {
-        toggleSidebar: () => {
-            dispatch(viewActions.toggleSidebar())
-        }
-    }
-}
-
-export default connect(null, mapDispatchToProps)(Header);
+export default Header;

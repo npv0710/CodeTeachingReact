@@ -18,6 +18,7 @@ import UserInfo from './pages/home/userinfo/UserInfo';
 import ListGroups from './pages/home/listgroups/ListGroups';
 import Settings from './pages/home/settings/Settings';
 import { useNavigate } from "react-router-dom";
+import PasswordChanging from './pages/home/password changing/PasswordChanging';
 
 const SignupWithLoading = WithLoading(Signup);
 const SigninWithLoading = WithLoading(Signin);
@@ -25,6 +26,7 @@ const SigninWithLoading = WithLoading(Signin);
 const UserWithLoading = WithLoading(UserInfo)
 const ListGroupsWithLoading = WithLoading(ListGroups)
 const SettingsWithLoading = WithLoading(Settings)
+const PasswordChangingWithLoading = WithLoading(PasswordChanging)
 
 function App() {
     
@@ -80,8 +82,9 @@ function App() {
             <Route path="/forgot-password" element={ <ForgotPassword /> } />
 
             <Route path="/" element={ <HomePage /> }>
-                    <Route path="/userinfo" element={<UserWithLoading />} />
-                    <Route path="/listgroups" element={<ListGroupsWithLoading />} />
+                    <Route path="/user-info" element={<UserWithLoading />} />
+                    <Route path="/list-groups" element={<ListGroupsWithLoading />} />
+                    <Route path="/password-changing" element={<PasswordChangingWithLoading />} />
                     <Route path="/settings" element={<SettingsWithLoading />} />
             </Route>
 
