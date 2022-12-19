@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@types/node": "^18.11.17",
+    "xmlhttprequest-ts": "^1.0.1"
+  }
+}
